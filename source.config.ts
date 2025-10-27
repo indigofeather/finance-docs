@@ -3,14 +3,22 @@ import {
   defineDocs,
   frontmatterSchema,
   metaSchema,
-} from 'fumadocs-mdx/config';
+} from "fumadocs-mdx/config";
+import { z } from "zod";
 
 // You can customise Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.dev/docs/mdx/collections
+const customFrontmatter = frontmatterSchema.extend({
+  date: z.date().optional(),
+  tags: z.array(z.string()).default([]),
+  categories: z.array(z.string()).default([]),
+  youtubeId: z.string().optional(),
+});
+
 export const docs = defineDocs({
-  dir: 'content/docs',
+  dir: "content",
   docs: {
-    schema: frontmatterSchema,
+    schema: customFrontmatter,
     postprocess: {
       includeProcessedMarkdown: true,
     },
