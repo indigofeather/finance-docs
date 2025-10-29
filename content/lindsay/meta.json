@@ -1,4 +1,5 @@
 {
   "title": "小Lin說",
-  "pages": ["z...a"]
+  "pages": ["z...a"],
+  "root": true
 }

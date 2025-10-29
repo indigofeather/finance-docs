@@ -1,4 +1,5 @@
 {
   "title": "市場觀察",
-  "pages": ["z...a"]
+  "pages": ["z...a"],
+  "root": true
 }

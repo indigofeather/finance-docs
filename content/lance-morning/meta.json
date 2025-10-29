@@ -1,4 +1,5 @@
 {
   "title": "蘭斯盤前資訊",
-  "pages": ["z...a"]
+  "pages": ["z...a"],
+  "root": true
 }
