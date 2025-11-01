@@ -30,6 +30,7 @@ export const docs = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
-    // MDX options
+    // Disable remote image size fetches to avoid network errors during dev/build.
   },
+  lastModifiedTime: 'git',
 });

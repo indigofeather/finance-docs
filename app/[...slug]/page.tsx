@@ -25,6 +25,7 @@ export default async function Page(props: PageProps<"/[...slug]">) {
         style: "clerk",
       }}
       full={page.data.full}
+      lastUpdate={new Date(page.data.lastModified ?? '')}
     >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
