@@ -23,7 +23,7 @@ export function YouTube({ id, title, start, className }: YouTubeProps) {
 
   return (
     <div
-      className={`group relative w-full overflow-hidden rounded-3xl border border-white/10 bg-black shadow-2xl shadow-black/30 ${className ?? ''}`}
+      className={`group relative w-full mt-8 overflow-hidden rounded-3xl border border-white/10 bg-black shadow-2xl shadow-black/30 ${className ?? ''}`}
       style={{ aspectRatio: '16 / 9' }}
     >
       <iframe
