@@ -1,0 +1,75 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/lance-morning/:year(\\d{4})-:month(\\d{2})-:day(\\d{2})/",
+      "destination": "/lance-morning/:year-:month/:year-:month-:day/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-morning/:year(\\d{4})-:month(\\d{2})-:day(\\d{2})/",
+      "destination": "/yu-morning/:year-:month/:year-:month-:day/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-market/:year(\\d{4})-:month(\\d{2})-:day(\\d{2})/",
+      "destination": "/yu-market/:year/:year-:month-:day/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-finance/:id(22[8-9]|23\\d|24[0-1])/",
+      "destination": "/yu-finance/2025/:id/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-finance/:id(18[4-9]|19\\d|20\\d|21\\d|22[0-7])/",
+      "destination": "/yu-finance/2024/:id/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-finance/:id(14[1-9]|15\\d|16\\d|17\\d|18[0-3])/",
+      "destination": "/yu-finance/2023/:id/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-finance/:id(9[4-9]|10\\d|11\\d|12\\d|13\\d|140)/",
+      "destination": "/yu-finance/2022/:id/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-finance/:id(6[8-9]|7\\d|8\\d|9[0-3])/",
+      "destination": "/yu-finance/2021/:id/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-finance/:id(2[8-9]|3\\d|4\\d|5\\d|6[0-7])/",
+      "destination": "/yu-finance/2020/:id/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-finance/sp/",
+      "destination": "/yu-finance/2020/sp/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/yu-finance/:id([1-9]|1\\d|2[0-7])/",
+      "destination": "/yu-finance/2019/:id/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    }
+  ]
+}
