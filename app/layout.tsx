@@ -37,6 +37,14 @@ export const metadata: Metadata = {
   authors: [{ name: "蘭斯" }],
   creator: "蘭斯",
   publisher: "蘭斯的財經記事本",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+  },
   openGraph: {
     type: "website",
     locale: SITE_LOCALE.replace("-", "_"),
