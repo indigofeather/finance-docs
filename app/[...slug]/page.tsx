@@ -93,16 +93,41 @@ export async function generateMetadata(
 
 type SourcePage = ReturnType<typeof source.getPages>[number];
 
-function getPageAuthors(page: SourcePage) {
-  return (page.data.authors ?? [])
-    .map((author) => {
-      if (!author?.name) return undefined;
-      return {
-        name: author.name,
-        image: author.image,
-      };
-    })
-    .filter((author): author is { name: string; image?: string } => !!author);
+type PageAuthor = { name: string; image?: string };
+
+function hasAuthorArray(
+  data: SourcePage["data"]
+): data is SourcePage["data"] & { authors: unknown[] } {
+  return Array.isArray((data as { authors?: unknown }).authors);
+}
+
+function toPageAuthor(entry: unknown): PageAuthor | undefined {
+  if (typeof entry !== "object" || entry === null) return undefined;
+
+  const { name, image } = entry as {
+    name?: unknown;
+    image?: unknown;
+  };
+
+  if (typeof name !== "string" || name.trim().length === 0) return undefined;
+
+  const author: PageAuthor = { name: name.trim() };
+
+  if (typeof image === "string" && image.trim().length > 0) {
+    author.image = image;
+  }
+
+  return author;
+}
+
+function getPageAuthors(page: SourcePage): PageAuthor[] {
+  if (!hasAuthorArray(page.data)) {
+    return [];
+  }
+
+  return page.data.authors
+    .map((author) => toPageAuthor(author))
+    .filter((author): author is PageAuthor => author !== undefined);
 }
 
 function createArticleJsonLd({
@@ -118,7 +143,7 @@ function createArticleJsonLd({
   canonicalUrl: string;
   publishedAt?: Date;
   modifiedAt?: Date;
-  authors: Array<{ name: string; image?: string }>;
+  authors: PageAuthor[];
 }) {
   return {
     "@context": "https://schema.org",
