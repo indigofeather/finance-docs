@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import { Cards, Card } from "fumadocs-ui/components/card";
 import { source } from "@/lib/source";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 
 type CardItem = {
   title: string;
@@ -40,19 +42,25 @@ const CARD_ITEMS: CardItem[] = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function HomePage() {
   const latestPagesByCollection = getLatestPagesByCollection();
 
   return (
-    <div className="flex flex-1 justify-center">
+    <main className="flex flex-1 justify-center" role="main">
       <div className="flex w-full max-w-6xl flex-col gap-12 px-6 py-16">
         <section className="space-y-8">
-          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             積累所見，沉澱所得
-          </h2>
-          <p className="text-base sm:text-lg">
-            在市場中觀察與學習，將知識點滴積累，為未來的每一次決策打下堅實基石。
-          </p>
+          </h1>
+          <p className="text-base sm:text-lg">{SITE_DESCRIPTION}</p>
         </section>
 
         <Cards>
@@ -82,7 +90,7 @@ export default function HomePage() {
           })}
         </Cards>
       </div>
-    </div>
+    </main>
   );
 }
 
