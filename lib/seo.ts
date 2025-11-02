@@ -1,4 +1,4 @@
-const FALLBACK_SITE_URL = "https://finance-docs.vercel.app";
+const FALLBACK_SITE_URL = "https://finance-docs.ycnets.com";
 
 export const SITE_NAME = "蘭斯的財經記事本";
 export const SITE_DESCRIPTION =
