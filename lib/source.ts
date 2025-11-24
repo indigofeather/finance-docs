@@ -1,4 +1,4 @@
-import { docs } from "@/.source";
+import { docs } from "fumadocs-mdx:collections/server";
 import { type InferPageType, loader } from "fumadocs-core/source";
 import { lucideIconsPlugin } from "fumadocs-core/source/lucide-icons";
 
@@ -6,7 +6,12 @@ import { lucideIconsPlugin } from "fumadocs-core/source/lucide-icons";
 export const source = loader({
   baseUrl: "/",
   source: docs.toFumadocsSource(),
-  plugins: [lucideIconsPlugin()],
+  plugins: ({ typedPlugin }) => [
+    lucideIconsPlugin(),
+    typedPlugin({
+      // the plugin config
+    }),
+  ],
 });
 
 export async function getLLMText(page: InferPageType<typeof source>) {
