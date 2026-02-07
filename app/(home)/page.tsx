@@ -20,10 +20,6 @@ const CARD_ITEMS: CardItem[] = [
     description: "每天早上開盤前半小時，解讀國際財經新聞時事變化。",
     collection: "yu-morning",
   },
-  // {
-  //   title: "財經書籍摘要",
-  //   description: "閱讀筆記摘要。",
-  // },
   {
     title: "財經皓角",
     description:
