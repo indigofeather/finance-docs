@@ -79,7 +79,10 @@ export default function Layout({ children }: LayoutProps<"/">) {
   return (
     <html lang="zh-TW" className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider>
+        <RootProvider
+          search={{
+            enabled: false, // disable search entirely
+          }}>
           <DocsLayout tree={source.pageTree} {...baseOptions()}>
             {children}
           </DocsLayout>
