@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/mdx-components";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
-import { InArticleAd, MediaAd } from "@/components/adsense";
 import { SITE_NAME, absoluteUrl, toDate, toIsoString } from "@/lib/seo";
 
 export default async function Page(props: PageProps<"/[...slug]">) {
@@ -36,14 +35,12 @@ export default async function Page(props: PageProps<"/[...slug]">) {
     >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsBody>
-        <InArticleAd />
         <MDX
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
           })}
         />
-        <MediaAd />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
