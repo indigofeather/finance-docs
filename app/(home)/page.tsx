@@ -32,7 +32,7 @@ const CARD_ITEMS: CardItem[] = [
     collection: "yu-market",
   },
   {
-    title: "小Lin說",
+    title: "小 Lin 說",
     description: "",
     collection: "lindsay",
   },
