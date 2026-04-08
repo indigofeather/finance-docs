@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
-import { source } from "@/lib/source";
+import { getSourceTabs, source } from "@/lib/source";
 import { baseOptions } from "@/lib/layout.shared";
 import {
   SITE_DESCRIPTION,
@@ -83,7 +83,10 @@ export default function Layout({ children }: LayoutProps<"/">) {
           search={{
             enabled: false, // disable search entirely
           }}>
-          <DocsLayout tree={source.pageTree} {...baseOptions()}>
+          <DocsLayout
+            tree={source.pageTree}
+            tabs={getSourceTabs(source.pageTree)}
+            {...baseOptions()}>
             {children}
           </DocsLayout>
         </RootProvider>

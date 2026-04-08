@@ -50,7 +50,7 @@ export default function HomePage() {
   const latestPagesByCollection = getLatestPagesByCollection();
 
   return (
-    <main className="flex flex-1 justify-center" role="main">
+    <main className="flex flex-1 justify-center [grid-area:main]" role="main">
       <div className="flex w-full max-w-6xl flex-col gap-12 px-6 py-16">
         <section className="space-y-8">
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
