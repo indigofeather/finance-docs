@@ -4,6 +4,7 @@ import { RootProvider } from "fumadocs-ui/provider/next";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import { getSourceTabs, source } from "@/lib/source";
 import { baseOptions } from "@/lib/layout.shared";
+import AppLink from "@/components/app-link";
 import {
   SITE_DESCRIPTION,
   SITE_LOCALE,
@@ -80,11 +81,17 @@ export default function Layout({ children }: LayoutProps<"/">) {
     <html lang="zh-TW" className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <RootProvider
+          components={{
+            Link: AppLink,
+          }}
           search={{
             enabled: false, // disable search entirely
           }}>
           <DocsLayout
             tree={source.pageTree}
+            sidebar={{
+              prefetch: false,
+            }}
             tabs={getSourceTabs(source.pageTree)}
             {...baseOptions()}>
             {children}
