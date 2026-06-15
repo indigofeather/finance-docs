@@ -15,6 +15,38 @@ yarn dev
 
 Open http://localhost:3000 with your browser to see the result.
 
+## 手動部署到 GitHub Pages
+
+此專案已設定為 Next.js static export，部署來源是 `out/` 目錄。
+
+自訂網域：`https://finance-docs.ycnets.com`
+
+完整部署指令：
+
+```bash
+GH_PAGES_CNAME=finance-docs.ycnets.com \
+NEXT_PUBLIC_BASE_PATH= \
+NEXT_PUBLIC_SITE_URL=https://finance-docs.ycnets.com \
+bun run deploy:github-pages
+```
+
+這個指令會：
+
+1. 執行 `bun run lint`
+2. 執行 `bun run build`
+3. 確認 `out/.nojekyll`
+4. 產生 GitHub Pages 的 `CNAME`
+5. 將 `out/` force push 到 `origin/gh-pages`
+
+第一次設定 GitHub Pages 時，請到 GitHub repo 的 Settings → Pages：
+
+- Source: Deploy from a branch
+- Branch: `gh-pages`
+- Folder: `/ (root)`
+- Custom domain: `finance-docs.ycnets.com`
+
+DNS 端請確認 `finance-docs.ycnets.com` 指向 GitHub Pages。
+
 ## Explore
 
 In the project, you can see:

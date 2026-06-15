@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { source } from "@/lib/source";
 import { absoluteUrl, toDate, toIsoString } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = source.getPages();
   const entries: MetadataRoute.Sitemap = [
