@@ -87,32 +87,34 @@ export default function Layout({ children }: LayoutProps<"/">) {
           }}
           search={{
             enabled: false, // disable search entirely
-          }}>
+          }}
+        >
           <DocsLayout
             tree={source.pageTree}
             sidebar={{
               prefetch: false,
             }}
             tabs={getSourceTabs(source.pageTree)}
-            {...baseOptions()}>
+            {...baseOptions()}
+          >
             {children}
           </DocsLayout>
         </RootProvider>
-        <Script
+        {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2574426828037254"
           async
           crossOrigin="anonymous"
           strategy="afterInteractive"
-        />
+        /> */}
         {/* ① 外部腳本，利用 next/script 讓它 async + 在 Hydration 後才載入 */}
-        <Script
+        {/* <Script
           src="https://fundingchoicesmessages.google.com/i/pub-2574426828037254?ers=1"
           strategy="afterInteractive"
-        />
+        /> */}
 
         {/* ② 內嵌腳本，把原本立即執行的 IIFE 塞進來
           用 dangerouslySetInnerHTML 可避免被 Next.js 當作 JSX 解析 */}
-        <Script
+        {/* <Script
           id="google-fc-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -135,7 +137,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
             })();
           `,
           }}
-        />
+        /> */}
       </body>
     </html>
   );
