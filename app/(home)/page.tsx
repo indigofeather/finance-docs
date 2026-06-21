@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Cards, Card } from "fumadocs-ui/components/card";
-import { source } from "@/lib/source";
+import { getPublishedPages, source } from "@/lib/source";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 
 type CardItem = {
@@ -96,7 +96,7 @@ function getLatestPagesByCollection() {
   const collections = new Set(CARD_ITEMS.map((item) => item.collection));
   const latestPages = new Map<string, SourcePage>();
 
-  for (const page of source.getPages()) {
+  for (const page of getPublishedPages()) {
     const [collection] = page.slugs;
     if (!collection || !collections.has(collection)) {
       continue;

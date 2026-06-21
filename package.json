@@ -3,16 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "next build && bun run optimize:static",
     "dev": "next dev",
     "deploy:github-pages": "bash scripts/deploy-github-pages.sh",
+    "optimize:static": "REMOVE_NEXT_RSC_TXT=1 node scripts/optimize-static-output.mjs out",
     "start": "next start",
     "postinstall": "fumadocs-mdx",
     "lint": "eslint"
   },
   "dependencies": {
     "@ctrl/react-adsense": "^2.1.0",
-    "@orama/tokenizers": "^3.1.18",
     "fumadocs-core": "16.10.3",
     "fumadocs-mdx": "15.0.12",
     "fumadocs-ui": "16.10.3",

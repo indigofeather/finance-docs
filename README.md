@@ -34,9 +34,10 @@ bun run deploy:github-pages
 
 1. 執行 `bun run lint`
 2. 執行 `bun run build`
-3. 確認 `out/.nojekyll`
-4. 產生 GitHub Pages 的 `CNAME`
-5. 將 `out/` force push 到 `origin/gh-pages`
+3. 壓縮 `out/` 內的 JPG 圖片，並移除 Next static export 產生的 `.txt` RSC payload
+4. 確認 `out/.nojekyll`
+5. 產生 GitHub Pages 的 `CNAME`
+6. 將 `out/` force push 到 `origin/gh-pages`
 
 第一次設定 GitHub Pages 時，請到 GitHub repo 的 Settings → Pages：
 
@@ -58,8 +59,6 @@ In the project, you can see:
 | ------------------------- | ------------------------------------------------------ |
 | `app/(home)`              | The route group for your landing page and other pages. |
 | `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
-
 ### Fumadocs MDX
 
 A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.

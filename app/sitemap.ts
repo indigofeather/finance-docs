@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
-import { source } from "@/lib/source";
+import { getPublishedPages } from "@/lib/source";
 import { absoluteUrl, toDate, toIsoString } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = source.getPages();
+  const pages = getPublishedPages();
   const entries: MetadataRoute.Sitemap = [
     {
       url: absoluteUrl("/"),
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 }
 
 function getLatestLastModified() {
-  const pages = source.getPages();
+  const pages = getPublishedPages();
 
   const latest = pages.reduce<Date | undefined>((acc, page) => {
     const candidate = toDate(page.data.lastModified) ?? toDate(page.data.date);

@@ -1,6 +1,5 @@
 "use client";
 
-import NextLink from "next/link";
 import type { ComponentProps } from "react";
 
 type AppLinkProps = ComponentProps<"a"> & {
@@ -9,8 +8,10 @@ type AppLinkProps = ComponentProps<"a"> & {
 
 export default function AppLink({
   href = "#",
-  prefetch = false,
   ...props
 }: AppLinkProps) {
-  return <NextLink href={href} prefetch={prefetch} {...props} />;
+  const { prefetch, ...anchorProps } = props;
+  void prefetch;
+
+  return <a href={href} {...anchorProps} />;
 }

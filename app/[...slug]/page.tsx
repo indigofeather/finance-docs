@@ -1,4 +1,4 @@
-import { source } from "@/lib/source";
+import { generatePublishedParams, getPublishedPage, source } from "@/lib/source";
 import { DocsBody, DocsPage, DocsTitle } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/mdx-components";
@@ -11,7 +11,7 @@ export const dynamicParams = false;
 
 export default async function Page(props: PageProps<"/[...slug]">) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
+  const page = getPublishedPage(params.slug);
   if (!page) notFound();
 
   const MDX = page.data.body;
@@ -56,14 +56,14 @@ export default async function Page(props: PageProps<"/[...slug]">) {
 }
 
 export async function generateStaticParams() {
-  return source.generateParams().filter((params) => params.slug.length > 0);
+  return generatePublishedParams();
 }
 
 export async function generateMetadata(
   props: PageProps<"/[...slug]">
 ): Promise<Metadata> {
   const params = await props.params;
-  const page = source.getPage(params.slug);
+  const page = getPublishedPage(params.slug);
   if (!page) notFound();
 
   const publishedAt = toDate(page.data.date);

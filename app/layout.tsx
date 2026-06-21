@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
-import { getSourceTabs, source } from "@/lib/source";
+import { getSourceTabs, publishedPageTree } from "@/lib/source";
 import { baseOptions } from "@/lib/layout.shared";
 import AppLink from "@/components/app-link";
 import {
@@ -11,7 +11,6 @@ import {
   SITE_NAME,
   getMetadataBase,
 } from "@/lib/seo";
-import Script from "next/script";
 
 import "./global.css";
 
@@ -90,11 +89,11 @@ export default function Layout({ children }: LayoutProps<"/">) {
           }}
         >
           <DocsLayout
-            tree={source.pageTree}
+            tree={publishedPageTree}
             sidebar={{
               prefetch: false,
             }}
-            tabs={getSourceTabs(source.pageTree)}
+            tabs={getSourceTabs(publishedPageTree)}
             {...baseOptions()}
           >
             {children}

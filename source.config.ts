@@ -14,15 +14,13 @@ const customFrontmatter = frontmatterSchema.extend({
   tags: z.array(z.string()).default([]),
   categories: z.array(z.string()).default([]),
   youtubeId: z.string().optional(),
+  draft: z.boolean().default(false),
 });
 
 export const docs = defineDocs({
   dir: "content",
   docs: {
     schema: customFrontmatter,
-    postprocess: {
-      includeProcessedMarkdown: true,
-    },
   },
   meta: {
     schema: metaSchema,

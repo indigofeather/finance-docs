@@ -16,6 +16,74 @@ export const source = loader({
   ],
 });
 
+export type SourcePage = ReturnType<typeof source.getPages>[number];
+
+export function isDraftPage(page: SourcePage): boolean {
+  return page.data.draft === true;
+}
+
+export function getPublishedPages(): SourcePage[] {
+  return source.getPages().filter((page) => !isDraftPage(page));
+}
+
+export function getPublishedPage(slugs: string[]): SourcePage | undefined {
+  const page = source.getPage(slugs);
+  if (!page || isDraftPage(page)) return undefined;
+  return page;
+}
+
+export function generatePublishedParams(): Array<{ slug: string[] }> {
+  return getPublishedPages()
+    .filter((page) => page.slugs.length > 0)
+    .map((page) => ({ slug: page.slugs }));
+}
+
+export const publishedPageTree = filterDraftsFromTree(source.pageTree);
+
+function filterDraftsFromTree<T extends PageTree.Root | PageTree.Folder>(tree: T): T {
+  const children = tree.children
+    .map((child) => filterDraftNode(child))
+    .filter((child): child is PageTree.Node => child !== undefined);
+
+  if (tree.type !== "folder") {
+    const fallback = tree.fallback
+      ? filterDraftsFromTree(tree.fallback)
+      : undefined;
+
+    return {
+      ...tree,
+      children,
+      fallback:
+        fallback && fallback.children.length > 0
+          ? fallback
+          : undefined,
+    };
+  }
+
+  return { ...tree, children };
+}
+
+function filterDraftNode(node: PageTree.Node): PageTree.Node | undefined {
+  if (node.type === "page") {
+    return isDraftNode(node) ? undefined : node;
+  }
+
+  if (node.type === "folder") {
+    const folder = filterDraftsFromTree(node);
+    if (!folder.index && folder.children.length === 0) return undefined;
+    return folder;
+  }
+
+  return node;
+}
+
+function isDraftNode(node: PageTree.Node): boolean {
+  if (node.type !== "page") return false;
+
+  const page = source.getNodePage(node);
+  return page ? isDraftPage(page) : false;
+}
+
 function collectUrls(
   folder: PageTree.Folder,
   output: Set<string> = new Set(),
