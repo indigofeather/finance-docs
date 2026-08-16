@@ -1,15 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="32" height="32" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
-  <g>
-    <g xmlns="http://www.w3.org/2000/svg">
-      <path d="m82.125 33.506h-36.25a6.5 6.5 0 0 1 -6.5-6.5 6.5 6.5 0 0 1 6.5-6.5h36.25a6.5 6.5 0 0 1 6.5 6.5 6.5 6.5 0 0 1 -6.5 6.5z" fill="#b4d2d7" data-original="#b4d2d7" style=""/>
-      <path d="m78.625 20.506h-29.25v-9.759a9 9 0 0 1 9-9h11.25a9 9 0 0 1 9 9z" fill="#596c76" data-original="#596c76" style=""/>
-      <path d="m92.853 88.062a50.36 50.36 0 0 0 -28.853.625 50.353 50.353 0 0 1 -29.48.446l-14.068 23.959a8.733 8.733 0 0 0 7.531 13.155h72.034a8.733 8.733 0 0 0 7.531-13.155z" fill="#8edbff" data-original="#52dddc" style="" class=""/>
-      <path d="m64 88.687a50.36 50.36 0 0 1 28.855-.625l-14.129-24.062h-.1v-30.494h-29.251v30.494h-.1l-14.757 25.133a50.353 50.353 0 0 0 29.482-.446z" fill="#e1ebf0" data-original="#e1ebf0" style="" class=""/>
-      <g fill="#27c4bf">
-        <circle cx="74.188" cy="105.688" r="8.188" fill="#52b1dd" data-original="#27c4bf" style="" class=""/>
-        <path d="m55.438 106.656a4.907 4.907 0 1 1 -4.907-4.906 4.907 4.907 0 0 1 4.907 4.906z" fill="#52b1dd" data-original="#27c4bf" style="" class=""/>
-      </g>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="蘭斯的財經記事本">
+  <title>蘭斯的財經記事本</title>
+
+  <!-- Deep navy base: stable, professional, finance-oriented -->
+  <rect width="64" height="64" rx="14" fill="#0F172A"/>
+
+  <!-- Note / knowledge lines -->
+  <path d="M14 19H32" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+  <path d="M14 29H27" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Market / learning growth path -->
+  <path d="M14 45L25 37L34 41L49 24"
+        fill="none"
+        stroke="#F4B740"
+        stroke-width="5.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Endpoint: accumulated insight -->
+  <circle cx="49" cy="24" r="4.5" fill="#F4B740"/>
 </svg>
