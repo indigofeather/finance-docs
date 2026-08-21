@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="蘭斯的財經記事本">
+  <title>蘭斯的財經記事本</title>
+
+  <!-- Deep navy base: stable, professional, finance-oriented -->
+  <rect width="64" height="64" rx="14" fill="#0F172A"/>
+
+  <!-- Note / knowledge lines -->
+  <path d="M14 19H32" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+  <path d="M14 29H27" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Market / learning growth path -->
+  <path d="M14 45L25 37L34 41L49 24"
+        fill="none"
+        stroke="#F4B740"
+        stroke-width="5.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Endpoint: accumulated insight -->
+  <circle cx="49" cy="24" r="4.5" fill="#F4B740"/>
+</svg>
